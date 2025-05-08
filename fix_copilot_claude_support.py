@@ -64,8 +64,9 @@ def modify_extension_js(ext_folder):
         content = f.read()
     
     # 查找并移除特定头信息代码
-    # 正则表达式匹配"x-onbehalf-extension-id"相关代码
-    pattern = r'("x-onbehalf-extension-id"\s*:\s*`\${A}\/\${c}`\s*,?)'
+    # 正则表达式匹配"x-onbehalf-extension-id":`${n}/${c}`相关代码
+    
+    pattern = r'("x-onbehalf-extension-id"\s*:\s*`\${n}\/\${c}`\s*,?)'
     modified_content = re.sub(pattern, '', content)
     
     # 检查是否成功修改
